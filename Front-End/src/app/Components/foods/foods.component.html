@@ -1,0 +1,18 @@
+
+
+  <mat-card *ngFor= "let listFoods of listFoods" class="example-card">
+    <mat-card-header>
+      <img mat-card-image src="https://www.infobae.com/new-resizer/H-JsgvCqehAlIqDoV9hR6S7c2ZU=/768x512/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/FNUZ37VV4FDYVFGZEKPVVFNP3A.jpg" alt="Photo of a Shiba Inu">
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-title>{{listFoods.name}}</mat-card-title>
+      <p>
+        ${{listFoods.price}}
+      </p>
+      <button (click)="deleteFood(listFoods.id)"  mat-button>Eliminar</button>
+    </mat-card-content>
+<!--     <mat-card-actions>
+      <button mat-button>SHARE</button>
+    </mat-card-actions> -->
+  </mat-card>
+  

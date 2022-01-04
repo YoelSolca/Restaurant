@@ -1,0 +1,15 @@
+D:\Restaurant\Back-End\LoggerService\bin\Debug\netcoreapp3.1\LoggerService.deps.json
+D:\Restaurant\Back-End\LoggerService\bin\Debug\netcoreapp3.1\LoggerService.dll
+D:\Restaurant\Back-End\LoggerService\bin\Debug\netcoreapp3.1\LoggerService.pdb
+D:\Restaurant\Back-End\LoggerService\bin\Debug\netcoreapp3.1\Contracts.dll
+D:\Restaurant\Back-End\LoggerService\bin\Debug\netcoreapp3.1\Entities.dll
+D:\Restaurant\Back-End\LoggerService\bin\Debug\netcoreapp3.1\Contracts.pdb
+D:\Restaurant\Back-End\LoggerService\bin\Debug\netcoreapp3.1\Entities.pdb
+D:\Restaurant\Back-End\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csproj.AssemblyReference.cache
+D:\Restaurant\Back-End\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.GeneratedMSBuildEditorConfig.editorconfig
+D:\Restaurant\Back-End\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.AssemblyInfoInputs.cache
+D:\Restaurant\Back-End\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.AssemblyInfo.cs
+D:\Restaurant\Back-End\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csproj.CoreCompileInputs.cache
+D:\Restaurant\Back-End\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csproj.CopyComplete
+D:\Restaurant\Back-End\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.dll
+D:\Restaurant\Back-End\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.pdb

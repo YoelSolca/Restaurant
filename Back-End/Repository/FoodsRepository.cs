@@ -26,12 +26,12 @@ namespace Repository
 
         public void UpdateFood(Foods food)
         {
-            throw new System.NotImplementedException();
+            Update(food);
         }
 
         public void CreateFood(Foods food)
         {
-            throw new System.NotImplementedException();
+            Create(food);
         }
 
         public void DeleteFood(Foods food)

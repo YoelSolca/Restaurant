@@ -1,9 +1,11 @@
+using AutoMapper;
 using Back_End.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Back_End
 {
@@ -24,6 +26,8 @@ namespace Back_End
             services.ConfigureSqlContext(Configuration);
             services.ConfigureLoggerService();
             services.ConfigureRepositoryWrapper();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
             services.AddCors(options =>

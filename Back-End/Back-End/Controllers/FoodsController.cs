@@ -1,4 +1,6 @@
-﻿using Contracts.Interfaces;
+﻿using AutoMapper;
+using Contracts.Interfaces;
+using Entities.Dto;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,11 +14,14 @@ namespace Back_End.Controllers
     {
         private ILoggerManager _logger;
         private IUnitOfWork _unitOfWork;
+        private IMapper _mapper;
 
-        public FoodsController(ILoggerManager logger, IUnitOfWork unitOfWork)
+
+        public FoodsController(ILoggerManager logger, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _logger = logger;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -37,23 +42,62 @@ namespace Back_End.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<ActionResult<Foods>> CreateFood(Foods food)
+        {
+            if (food == null)
+            {
+                return BadRequest();
+            }
+
+            _unitOfWork.Foods.CreateFood(food);
+            _unitOfWork.Foods.SaveAsync();
+
+            return Ok();
+        }
+
+
+
+        [HttpPut("{foodID}")]
+        public async Task<ActionResult> UpdateUser(int foodID, [FromBody] FoodsDto food)
+        {
+            if (food == null)
+            {
+                return BadRequest();
+            }
+
+            var foodFromRepo = await _unitOfWork.Foods.GetFoodById(foodID);
+
+            if (foodFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(food, foodFromRepo);
+
+            _unitOfWork.Foods.UpdateFood(foodFromRepo);
+
+            _unitOfWork.Foods.SaveAsync();
+
+            return NoContent();
+        }
+
         [HttpDelete("{foodID}")]
         public async Task<ActionResult> DeleteFood(int foodID)
         {
             var food = await _unitOfWork.Foods.GetFoodById(foodID);
 
-            if(food == null)
+            if (food == null)
             {
                 return NotFound();
             }
-            _unitOfWork.Foods.Delete(food);
+
+            _unitOfWork.Foods.DeleteFood(food);
 
             _unitOfWork.Foods.SaveAsync();
+
             return NoContent();
-
-
         }
-
 
     }
 }

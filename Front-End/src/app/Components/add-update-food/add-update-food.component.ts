@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Foods } from 'src/app/Models/foods';
 import { FoodsService } from 'src/app/Services/foods.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-update-food',
@@ -19,7 +20,8 @@ export class AddUpdateFoodComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private _foodService: FoodsService,
     private router: Router,
-    private aRoute: ActivatedRoute) {
+    private aRoute: ActivatedRoute,
+    private toastr: ToastrService) {
     this.agregarComida = this.fb.group({
       name: ['', Validators.required],
       price: ['', Validators.required],
@@ -60,8 +62,10 @@ export class AddUpdateFoodComponent implements OnInit {
         photo: this.agregarComida.get('photo')?.value,
       }
       this._foodService.save(food).subscribe(data => {
+        this.toastr.success('El comentario fue registrado con exito', 'Comentario registrado');
         this.router.navigate(['/']);
       }, error => {
+        this.toastr.error('Opss Ocurrio un error!', 'Error');
         console.log(error);
       })
     } else {
@@ -74,9 +78,10 @@ export class AddUpdateFoodComponent implements OnInit {
       }
 
       this._foodService.Update(this.id, comida).subscribe(data => {
-        console.log(comida);
+        this.toastr.info('El comentario fue actualizado con exito', 'Comentario actualizado');
         this.router.navigate(['/']);
       }, error => {
+        this.toastr.error('Opss Ocurrio un error!', 'Error');
         console.log(error);
       })
     }

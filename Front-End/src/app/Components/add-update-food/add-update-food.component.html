@@ -1,0 +1,29 @@
+<h3 class="mt-3">{{ accion }} Comentario</h3>
+<form [formGroup]="agregarComida" (ngSubmit)="agregarEdtiarComida()">
+    <div class="mb-3">
+        <label for="name" class="form-label">name</label>
+        <input formControlName="name" type="text" class="form-control" id="name">
+        <span class="text-danger" *ngIf="agregarComida.get('name')?.invalid && agregarComida.get('name')?.touched">
+            El <strong>name</strong> es requerido
+        </span>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">price</label>
+        <input formControlName="price" type="number" class="form-control" id="price">
+        <span class="text-danger" *ngIf="agregarComida.get('price')?.invalid && agregarComida.get('price')?.touched">
+            El <strong>price</strong> es requerido
+        </span>
+    </div>
+
+    <div class="mb-3">
+        <label for="photo" class="form-label">photo</label>
+        <input formControlName="photo" type="text" class="form-control" id="photo">
+        <span class="text-danger" *ngIf="agregarComida.get('photo')?.invalid && agregarComida.get('photo')?.touched">
+            El <strong>photo</strong> es requerido
+        </span>
+    </div>
+    
+
+      <button type="submit" class="btn btn-primary float-end">Aceptar</button>
+      <button type="button" routerLink="/" class="btn btn-secondary">Volver</button>
+</form>

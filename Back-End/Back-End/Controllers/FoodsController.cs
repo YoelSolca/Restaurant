@@ -42,6 +42,19 @@ namespace Back_End.Controllers
             }
         }
 
+        [HttpGet("{foodID}")]
+        public async Task<ActionResult> GetFood(int foodID)
+        {
+             var food = await _unitOfWork.Foods.GetFoodById(foodID);
+
+            if(food == null)
+            {
+                return NotFound();
+            }
+
+             return Ok(food);
+        }
+
         [HttpPost]
         public async Task<ActionResult<Foods>> CreateFood(Foods food)
         {
